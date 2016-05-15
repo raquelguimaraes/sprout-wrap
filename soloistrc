@@ -1,12 +1,8 @@
-cookbook_paths:
-- cookbooks
-- site-cookbooks
-
 recipes:
 
 # base (required by sprout)
 - sprout-base
-- sprout-base::bash_it
+# - sprout-base::bash_it
 - homebrew
 - homebrew::install_formulas
 - homebrew::install_casks
@@ -14,23 +10,32 @@ recipes:
 # apps
 
 # settings
-- sprout-osx-settings
 - sprout-osx-settings::dock_preferences
+- sprout-osx-settings::defaults_fast_key_repeat_rate
+- sprout-osx-settings::function_keys
+- sprout-osx-settings::screensaver
+- sprout-osx-settings::set_menubar_clock_format
+- sprout-osx-settings::updates
+- sprout-osx-settings::finder_display_full_path
+- sprout-osx-settings::set_multitouch_preferences
 
 node_attributes:
-    settings:
+  settings:
       clock_format: EEE MMM d  h:mm a
+  sprout:
     dock_preferences:
       orientation: 'bottom'
       auto_hide: true
       clear_apps: true
       tile_size: 35
-      magnification: true
+      magnification: false
   homebrew:
     formulas:
       - pstree
       - tree
       - jq
+      - python
+      - gradle
       - python
     casks:
       - 1password
@@ -47,6 +52,4 @@ node_attributes:
       - intellij-idea
       - dockertoolbox
       - atom
-      - gradle
-      - python
       - java
