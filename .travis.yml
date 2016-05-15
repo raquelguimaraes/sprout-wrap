@@ -1,8 +1,9 @@
 language: objective-c
 rvm: system
+osx_image: xcode7.3
 install:
   - sudo gem install bundler --no-ri --no-rdoc
-  - sudo ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future bundle install
+  - sudo bundle install
+  - brew uninstall --force brew-cask
 script:
-  - bundle exec foodcritic -f any site-cookbooks
   - soloist

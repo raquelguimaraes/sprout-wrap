@@ -3,13 +3,18 @@ recipes:
 # base (required by sprout)
 - sprout-base
 - sprout-base::bash_it
-- sprout-base::homebrew
+- homebrew
+- homebrew::install_formulas
+- homebrew::install_casks
+
+# apps
+- sprout-osx-apps::iterm2
+- sprout-osx-apps::shiftit
 
 # settings
 - sprout-osx-settings
 - sprout-osx-settings::dock_preferences
 - sprout-terminal
-- sprout-terminal::update_font
 - sprout-ssh::known_hosts_github
 
 # development (general)
@@ -25,23 +30,14 @@ recipes:
 - sprout-mysql
 - sprout-postgresql
 
-# apps
-- sprout-osx-apps::iterm2
-- sprout-osx-apps::keycastr
-- sprout-osx-apps::flycut
-- sprout-osx-apps::shiftit
-
 # apps (editors)
-- sprout-osx-apps::textmate_bundles
 - sprout-osx-apps::textmate_preferences
-- sprout-osx-apps::macvim
-- sprout-rubymine
-- sprout-homebrew
+- sprout-jetbrains-editors::rubymine
 
 node_attributes:
   sprout:
     git:
-      domain: pivotallabs.com
+      domain: pivotal.io
       authors:
         - initials: ah
           name: Abhijit Hiremagalur
@@ -56,8 +52,8 @@ node_attributes:
           username: lwinikates
       projects:
         -
-          - sprout-wrap
-          - https://github.com/pivotal-sprout/sprout-wrap.git
+          name: sprout-wrap
+          url: https://github.com/pivotal-sprout/sprout-wrap.git
     terminal:
       default_profile: 'Pro'
     settings:
@@ -67,34 +63,34 @@ node_attributes:
       auto_hide: true
       clear_apps: true
       tile_size: 35
-      magnification': false
-    homebrew:
-      formulae:
-        - ctags-exuberant
-        - ag
-        - chromedriver
-        - imagemagick
-        - node
-        - pstree
-        - qt
-        - ssh-copy-id
-        - tmux
-        - tree
-        - watch
-        - wget
-        - rbenv-binstubs
-        - rbenv-gem-rehash
-      casks:
-        - ccmenu
-        - firefox
-        - gitx-rowanj
-        - github
-        - google-chrome
-        - google-drive
-        - google-hangouts
-        - skype
-        - textmate
-        - vagrant
-        - virtualbox
-        - xquartz
-        - xscope
+      magnification: false
+  homebrew:
+    formulas:
+      - ctags-exuberant
+      - ag
+      - chromedriver
+      - imagemagick
+      - node
+      - pstree
+      - qt
+      - ssh-copy-id
+      - tmux
+      - tree
+      - watch
+      - wget
+      - rbenv-binstubs
+    casks:
+      - firefox
+      - flycut
+      - rowanj-gitx
+      - github-desktop
+      - google-chrome
+      - google-drive
+      - google-hangouts
+      - macvim
+      - skype
+      - textmate
+      - vagrant
+      - virtualbox
+      - xquartz
+      - xscope
