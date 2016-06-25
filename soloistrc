@@ -19,16 +19,32 @@ recipes:
 - sprout-osx-settings::finder_display_full_path
 - sprout-osx-settings::set_multitouch_preferences
 
+# development (general)
+- sprout-base::workspace_directory
+- sprout-git::install
+- sprout-git::projects
+
 node_attributes:
-  settings:
-      clock_format: EEE MMM d  h:mm a
+  workspace_directory: Repositories
   sprout:
+    git:
+      projects:
+        - name: dotfiles
+          url: https://github.com/raquelguimaraes/dotfiles.git
+          post_clone_commands:
+            - sh setup.sh -sp
     dock_preferences:
       orientation: 'bottom'
       auto_hide: true
       clear_apps: true
       tile_size: 35
-      magnification: false
+      magnification: true
+      largesize: 73
+    settings:
+      clock_format: EEE MMM d  h:mm
+    keyboard_preferences:
+      key_repeat_rate_lower_is_faster: 2
+      initial_repeat_delay_lower_is_shorter: 15
   homebrew:
     formulas:
       - pstree
@@ -36,19 +52,24 @@ node_attributes:
       - jq
       - gradle
       - python
+      - python3
     casks:
       - 1password
+      - atom
+      - caffeine
+      - dockertoolbox
       - dropbox
       - evernote
       - firefox
       - google-chrome
+      - intellij-idea
+      - istat-menus
+      - iterm2
+      - java
       - spectacle
+      - spotify
+      - steam
       - skype
+      - slack
       - vagrant
       - virtualbox
-      - slack
-      - iterm2
-      - intellij-idea
-      - dockertoolbox
-      - atom
-      - java
