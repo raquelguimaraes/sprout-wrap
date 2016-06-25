@@ -66,6 +66,7 @@ node_attributes:
       - istat-menus
       - iterm2
       - java
+      - screenhero
       - spectacle
       - spotify
       - steam
