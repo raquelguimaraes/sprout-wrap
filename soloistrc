@@ -50,7 +50,6 @@ node_attributes:
       - pstree
       - tree
       - jq
-      - gradle
       - python
       - python3
     casks:
