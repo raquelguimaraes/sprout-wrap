@@ -18,6 +18,8 @@ recipes:
 - sprout-osx-settings::updates
 - sprout-osx-settings::finder_display_full_path
 - sprout-osx-settings::set_multitouch_preferences
+- sprout-osx-settings::volume
+- sprout-osx-settings::battery
 
 # development (general)
 - sprout-base::workspace_directory
